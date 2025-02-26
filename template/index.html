@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Chatbot</title>
+</head>
+<body>
+    <h1>Sentiment Analysis Chatbot</h1>
+    <div>
+        <input type="text" id="userInput" placeholder="Type your message here">
+        <button onclick="analyzeSentiment()">Send</button>
+    </div>
+    <p id="response"></p>
+
+    <script>
+        async function analyzeSentiment() {
+            const userInput = document.getElementById('userInput').value;
+            const response = await fetch('/analyze', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: userInput })
+            });
+            const result = await response.json();
+            document.getElementById('response').textContent = 
+                `Sentiment: ${result[0].label}, Score: ${result[0].score.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
