@@ -121,8 +121,11 @@ input_text = "I'm feeling very lonely and hopeless today."
 response = generate_emotion_response(input_text)
 print(response)
 
-
 @app.route('/')
+def homepage():
+    return render_template('homepage.html')
+
+@app.route('/index.html')
 def home():
     return render_template('index.html')
 
