@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Analysis</title>
+</head>
+<body>
+    <h1>Mental Health Check</h1>
+    <textarea id="userInput" rows="4" cols="50" placeholder="How are you feeling today?"></textarea><br>
+    <button onclick="analyzeText()">Analyze</button>
+
+    <h2 id="output"></h2>
+
+    <script>
+        async function analyzeText() {
+            const userInput = document.getElementById('userInput').value;
+            
+            // Send POST request to /predict
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: userInput }),
+            });
+
+            const result = await response.json();
+            document.getElementById('output').innerText = `Prediction: ${result.message}`;
+        }
+    </script>
+</body>
+</html>
