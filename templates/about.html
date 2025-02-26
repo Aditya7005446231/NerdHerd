@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .team-section{
+    width: 100%;
+    /* height: 100%; */
+    background: gray;
+    /* background: radial-gradient(circle, rgb(150, 112, 221) 0%, rgb(81, 170, 214) 100%); */
+    background-color: #0B6DA2;
+    opacity: 1;
+    /* transform: translateY(50px); */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.team-section .container{
+    width: 100%;
+    text-align: center;
+    justify-content: space-between;
+}
+.team-section .container .row{
+    width: 100%;
+    /* margin-top: 50px; */
+}
+.team-section .container .row .title{
+    text-align: center; 
+    display: flex;
+     /* margin-top: 50px;  */
+}
+.team-section .container .row .title h1{
+    font-size: 35px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: sans-serif;
+    justify-content: center;
+    text-align: center;
+}
+.team-section .container .row .title p{
+    font-size: 18px;
+    font-family: sans-serif;
+    margin: 30px 0px;
+    color: #e3dbef;
+    text-align: center;
+    display: flex;
+}
+.team-section .container .row .title p:hover{
+    color: #afa9ac;
+    transition: 1s;
+}
+.team-section .container .team-card{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap:50px;
+    margin-top: 50px;
+
+}
+.team-section .container .team-card .card{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    cursor: pointer;
+    border: 2px solid white;
+    background-color: #C6E8FB;
+    border-radius: 10%;
+
+}
+.team-section .container .team-card :hover{
+    background-color: rgb(83, 110, 172);
+    transition: 1s;
+}
+.team-section .container .team-card .card:hover{
+    background-color:rgb(83, 110, 172);
+    border-radius: 20%;
+    transition: 0.5s;
+}
+.team-section .container .team-card .card .image-section img{
+    height: 150px;
+    width: 150px;
+    /* border-radius: 50%; */
+    border: 6px solid rgb(49, 23, 23);
+    
+}
+.team-section .container .team-card .card .content {
+    width: 100%;
+    text-align: center;
+
+}
+.team-section .container .team-card .card .content h3{
+    font-size: 27px;
+    margin: 10px;
+    letter-spacing: 1.5px;
+    color: #093249;
+}
+.team-section .container .team-card .card .content h4{
+    font-size: 17px;
+    margin-top:10px;
+    letter-spacing: 1.5px;
+    color: #622828;
+}
+.team-section .container .team-card .card .content p{
+    font-size: 15px;
+    margin: 16px 0px;
+    line-height: 1.5;
+    color: #0f0a4f;
+}
+@media screen and (max-width:900px){
+    .team-section .container .team-card{
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+</head>
+<body>
+    <div id="about-us" href="about.html">
+        <div class="team-section">vs
+            <div class="container">
+                <div class="row">
+                    <div class="title">
+                    <h1>
+                        About Us
+                    </h1>
+                    <p>Chatbots are an emerging technology that show potential for mental health care apps to enable effective and practical evidence-based therapies. As this technology is still relatively new, little is known about recently developed apps and their characteristics and effectiveness.</p>
+                </div></div>
+                <div class="team-card">
+                    <div class="card">
+                        <div class="image-section">
+                            <img src="empathy.jpg">
+                        </div>
+                        <div class="content">
+                            <h3>Empathy</h3>
+                            <h4>A terminology to all</h4>
+                            <p>When we see that someone's hurt or in pain, it's our instinct as human beings to try to make things better. We want to fix, we want to give advice. But empathy isn't about fixing. It's the brave choice to be with someone in their darkness--not to race to turn on the light so we feel better.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="image-section">
+                            <img src="image.jpg">
+                        </div>
+                        <div class="content">
+                            <h3>Group discussion on Chat</h3>
+                            <h4>Self Improvement</h4>
+                            <p>LMost of all, throughout the group discussion, it is necessary to keep in mind that the objective of this task is cooperation and a practical conclusion. It is essential that you make your point while respecting other’s views and opinions</p>
+                        </div>
+                    </div><div class="card">
+                        <div class="image-section">
+                            <img src="mood.jpg">
+                        </div>
+                        <div class="content">
+                            <h3>Seft Growth</h3>
+                            <h4>Using a calm mind</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam error mollitia ipsum officiis excepturi laborum, libero fuga ab eveniet quis praesentium corrupti molestiae, provident ad voluptates velit labore laboriosam dolore?</p>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

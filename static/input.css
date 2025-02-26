@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: oklch(0.491 0.27 292.581);
+  color: white;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/*  =>  Designing the header */
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background-color: white;
+  color: oklch(0.491 0.27 292.581);
+  position: fixed;
+width:100%;
+top: 0;
+  
+}
+
+.head .head-text {
+  font-size: 40px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.head .head-list {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.head .head-list li {
+  font-size: 20px;
+  color: white;
+  font-weight: 500;
+  border-radius: 20px;
+  font-family: "Oswald", sans-serif;
+  color: oklch(0.491 0.27 292.581);
+}
+
+/*  => Designing the introductory part */
+
+.intro {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 80px;
+  width: 80%;
+  align-items: center;
+}
+
+.intro-text {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 60px;
+  font-weight: 800;
+  flex-wrap: wrap;
+}
+
+/*  About us section */
+.about {
+  display: flex;
+  width: 60%;
+  margin: 150px auto;
+}
+
+.about .about-div {
+  display: flex;
+  width: 60%;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
+}
+
+.about .one {
+  border-right: 2px solid white;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.about .two {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-align: justify;
+}
+
+.about .one,
+.about .two {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+}
+
+/* Chatbot */
+.chatbot {
+  width: 40%;
+  background-color: white;
+  color: oklch(0.491 0.27 292.581);
+  text-align: center;
+  padding: 20px;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  margin: 30px auto;
+  border-radius: 30px;
+}
+
+
+/*  => Our services */
+
+.services {
+  width: 80%;
+  margin: 30px auto;
+  margin-bottom: 20px;
+  padding: 40px;
+}
+.services > p {
+    font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.services .service-flex {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.service-flex .service-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  color: oklch(0.491 0.27 292.581);
+  display: inline-block;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: white;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: bold;
+  padding: 5px 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a {
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.footer {
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  background-color: #fff;
+  color: oklch(0.491 0.27 292.581);
+  font-weight: 700;
+}

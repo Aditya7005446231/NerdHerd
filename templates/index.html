@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Health Analysis</title>
+    <link rel="stylesheet" href="../static/input.css">
 </head>
 <body>
-    <h1>Mental Health Check</h1>
+    
     <textarea id="userInput" rows="4" cols="50" placeholder="How are you feeling today?"></textarea><br>
     <button onclick="analyzeText()">Analyze</button>
 
@@ -29,5 +30,6 @@
             document.getElementById('output').innerText = `Prediction: ${result.message}`;
         }
     </script>
+
 </body>
 </html>
