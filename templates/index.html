@@ -1,22 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Health Analysis</title>
-    <link rel="stylesheet" href="../static/input.css">
-</head>
-<body>
-    
-    <textarea id="userInput" rows="4" cols="50" placeholder="How are you feeling today?"></textarea><br>
-    <button onclick="analyzeText()">Analyze</button>
+    <!--<link rel="stylesheet" href="../static/input.css">-->
+    <style>
+        body {
+            background-color: oklch(0.491 0.27 292.581);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
 
-    <h2 id="output"></h2>
+        /* Main container to center the elements */
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 500px;
+        }
+
+        /* Container for input and output */
+        .input-output-container {
+            margin-bottom: 20px;
+        }
+
+        /* Styling the textarea input */
+        textarea {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            resize: none;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        /* Styling the Analyze button */
+        #analyze {
+            background-color: aquamarine;
+            color: black;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button hover effect */
+        #analyze:hover {
+            background-color: #7fffd4; /* Darker aquamarine */
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Styling the prediction output */
+        #output {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: aquamarine;
+            text-align: center;
+            display: block; /* Ensure it appears on a new line */
+            white-space: pre-wrap; /* Ensures new lines are kept */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="input-output-container">
+            <textarea id="userInput" rows="4" cols="50" placeholder="How are you feeling today?"></textarea><br>
+            <button onclick="analyzeText()" id="analyze">Analyze</button>
+        </div>
+        <!-- Prediction output will appear below the input -->
+        <h2 id="output"></h2>
+    </div>
 
     <script>
         async function analyzeText() {
             const userInput = document.getElementById('userInput').value;
-            
+
             // Send POST request to /predict
             const response = await fetch('/predict', {
                 method: 'POST',
@@ -32,4 +109,5 @@
     </script>
 
 </body>
+
 </html>

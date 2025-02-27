@@ -3,13 +3,13 @@ from transformers import pipeline
 import random
 import re
 
-# Initialize the Flask app
+
 app = Flask(__name__)
 
-# Load the sentiment analysis model
+
 classifier = pipeline("sentiment-analysis", model="michellejieli/emotion_text_classifier")
 
-# Emotion Keywords (unchanged)
+
 emotion_keywords = {
     'sadness': [
         "lonely", "disappointed", "heartbroken", "upset", 
@@ -53,7 +53,7 @@ emotion_keywords = {
     ]
 }
 
-# Emotion Messages
+
 emotion_messages = {
     'sadness': {
         "lonely": "It seems like you're feeling lonely. Connecting with someone could help lift your spirits.",
@@ -99,24 +99,19 @@ emotion_messages = {
     }
 }
 
-# Function to detect emotion and provide response
 def generate_emotion_response(input_text):
-    input_text = input_text.lower()  # Convert text to lowercase to handle case insensitivity
-    # Tokenize the input text into words (ignoring punctuation)
+    input_text = input_text.lower()  
     words = re.findall(r'\b\w+\b', input_text)
 
-    # Iterate over each emotion category
     for emotion, keywords in emotion_keywords.items():
         for keyword in keywords:
-            if keyword in words:  # Partial match with individual words
-                # Get specific message for detected keyword
+            if keyword in words:  
                 if keyword in emotion_messages[emotion]:
                     return emotion_messages[emotion][keyword]
     
-    # Default response if no keyword is found
+
     return "I'm here to listen whenever you're ready to share more."
 
-# Example Usage
 input_text = "I'm feeling very lonely and hopeless today."
 response = generate_emotion_response(input_text)
 print(response)
@@ -133,33 +128,40 @@ def home():
 def bot():
     return render_template('chat-bot.html')
 
-# Define a route for sentiment analysis
+
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        # Get the text from the POST request
         data = request.get_json()
         text = data.get('text')
         
         if not text:
             return jsonify({'error': 'No text provided'}), 400
         
-        # Get the prediction from the model
+
+        keyword_response = generate_emotion_response(text)
+        if keyword_response:
+            return jsonify({
+                'emotion': 'keyword_matched',  # Optional: You can label this as a keyword match
+                'score': None,  # Since no model prediction was used, no score
+                'message': keyword_response
+            })        
+
+
         prediction = classifier(text)[0]
         
         emotion = prediction.get('label')
         score = prediction.get('score')
         
-        # Ensure emotion exists in the predefined messages
         if emotion in emotion_messages:
             message = random.choice(list(emotion_messages[emotion].values()))
         else:
-            message = "It's okay to not feel okay."
+            message = "I am sorry can't help with that. Try talking to our MindMate."
         
         if score > 0.8 and emotion == 'sadness':
             message += " It's important to reach out to someone if you're feeling this way."
         
-        # Return the prediction as a JSON response
+        
         return jsonify({
             'emotion': emotion,
             'score': round(score, 2),

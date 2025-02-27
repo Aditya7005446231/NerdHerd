@@ -146,7 +146,7 @@ top: 0;
   font-size: 20px;
   color: oklch(0.491 0.27 292.581);
   display: inline-block;
-  padding: 10px;
+  padding: px;
   border-radius: 30px;
   background-color: white;
   font-family: "Nunito Sans", sans-serif;
@@ -177,4 +177,7 @@ a {
   background-color: #fff;
   color: oklch(0.491 0.27 292.581);
   font-weight: 700;
+}
+#analyze{
+  font-size: large;
 }
