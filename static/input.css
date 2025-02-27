@@ -54,10 +54,11 @@ top: 0;
 
 .intro {
   display: flex;
-  margin: 0 auto;
-  margin-top: 80px;
+  margin: 180px auto;
+  /* margin-top: 80px; */
   width: 80%;
   align-items: center;
+
 }
 
 .intro-text {
@@ -143,7 +144,7 @@ top: 0;
   background: none;
   border: none;
   color: white;
-  font-size: 20px;
+  font-size: 30px;
   color: oklch(0.491 0.27 292.581);
   display: inline-block;
   padding: px;
@@ -152,7 +153,15 @@ top: 0;
   font-family: "Nunito Sans", sans-serif;
   font-weight: bold;
   padding: 5px 30px;
+  height: 300px;
+  width:40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
+
+
 
 a {
   text-decoration: none;
