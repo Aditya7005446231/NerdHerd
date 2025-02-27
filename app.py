@@ -129,6 +129,10 @@ def homepage():
 def home():
     return render_template('index.html')
 
+@app.route('/chat-bot.html')
+def bot():
+    return render_template('chat-bot.html')
+
 # Define a route for sentiment analysis
 @app.route('/predict', methods=['POST'])
 def predict():
